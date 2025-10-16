@@ -16,11 +16,11 @@ export default function Navbar() {
 
         {/* Desktop Links */}
         <div className="hidden md:flex space-x-8 text-gray-700">
-          <Link href="#">Home</Link>
-          <Link href="#">What We Do</Link>
-          <Link href="#">Resources</Link>
-          <Link href="#">About</Link>
-          <Link href="#">Contact</Link>
+          <Link href="/">Home</Link>
+          <Link href="/">What We Do</Link>
+          <Link href="/">Resources</Link>
+          <Link href="/">About</Link>
+          <Link href="/">Contact</Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -35,11 +35,11 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {open && (
         <div className="md:hidden bg-white shadow-md flex flex-col items-center py-4 space-y-3 animate-fade-in">
-          <Link href="#">Home</Link>
-          <Link href="#">What We Do</Link>
-          <Link href="#">Resources</Link>
-          <Link href="#">About</Link>
-          <Link href="#">Contact</Link>
+          <Link href="/">Home</Link>
+          <Link href="/">What We Do</Link>
+          <Link href="/">Resources</Link>
+          <Link href="/">About</Link>
+          <Link href="/">Contact</Link>
         </div>
       )}
     </nav>
