@@ -16,13 +16,21 @@ const DefaultIcon = L.icon({
 L.Marker.prototype.options.icon = DefaultIcon;
 
 export default function Map() {
-  const position = [6.6626, 3.3249]; // Agege/Iju-Ishaga
+  const position: [number, number] = [6.6626, 3.3249]; //Agege/Iju-Ishaga
 
-  const vehicles = [
-    { id: 1, name: "Bike Rider", coords: [6.664, 3.325], icon: "🛵" },
-    { id: 2, name: "Mini Van", coords: [6.661, 3.321], icon: "🚙" },
-    { id: 3, name: "Truck", coords: [6.665, 3.327], icon: "🚚" },
-  ];
+
+ const vehicles: { id: number; name: string; coords: [number, number]; icon: string }[] = [
+  { id: 1, name: "Bike Rider", coords: [6.664, 3.325], icon: "🛵" },
+  { id: 2, name: "Mini Van", coords: [6.661, 3.321], icon: "🚙" },
+  { id: 3, name: "Truck", coords: [6.665, 3.327], icon: "🚚" },
+];
+
+
+  // const vehicles = [
+  //   { id: 1, name: "Bike Rider", coords: [6.664, 3.325], icon: "🛵" },
+  //   { id: 2, name: "Mini Van", coords: [6.661, 3.321], icon: "🚙" },
+  //   { id: 3, name: "Truck", coords: [6.665, 3.327], icon: "🚚" },
+  // ];
 
   useEffect(() => {
     // Optional: future live update simulation here
