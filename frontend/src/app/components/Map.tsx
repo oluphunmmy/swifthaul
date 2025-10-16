@@ -1,21 +1,25 @@
 "use client";
+/// <reference types="leaflet" />
+
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { useEffect } from "react";
 
-import iconUrl from "leaflet/dist/images/marker-icon.png";
-import iconShadowUrl from "leaflet/dist/images/marker-shadow.png";
+// ✅ FIX: import via require() to get string paths
+const iconUrl = require("leaflet/dist/images/marker-icon.png");
+const iconShadowUrl = require("leaflet/dist/images/marker-shadow.png");
 
+// Fix Leaflet marker icons in Next.js
 const DefaultIcon = L.icon({
-  iconUrl,
-  shadowUrl: iconShadowUrl,
+  iconUrl: iconUrl.default || iconUrl,
+  shadowUrl: iconShadowUrl.default || iconShadowUrl,
   iconAnchor: [12, 41],
 });
 L.Marker.prototype.options.icon = DefaultIcon;
 
 export default function Map() {
-  const position: [number, number] = [6.6626, 3.3249]; // Agege/Iju-Ishaga
+  const position: [number, number] = [6.6626, 3.3249];
 
   const vehicles: { id: number; name: string; coords: [number, number]; icon: string }[] = [
     { id: 1, name: "Bike Rider", coords: [6.664, 3.325], icon: "🛵" },
