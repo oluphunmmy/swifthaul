@@ -1,3 +1,6 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
+  "/schedule-a-consultation/page": "app/schedule-a-consultation/page.js",
+  "/resources/page": "app/resources/page.js",
   "/page": "app/page.js"
 }

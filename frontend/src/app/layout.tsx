@@ -3,8 +3,9 @@ import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  variable: "--font-poppins",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "600", "700"],
+  display: "swap",          // ✅ Prevents build-time fetching delay
+  fallback: ["sans-serif"], // ✅ Local fallback font
 });
 
 export const metadata = {
@@ -15,9 +16,8 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} antialiased`}>
-        {children}
-      </body>
+      <body className={poppins.className}>{children}</body>
+
     </html>
   );
 }

@@ -1,61 +1,15 @@
 "use client";
-/// <reference types="leaflet" />
+import dynamic from "next/dynamic";
 
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
-import L from "leaflet";
-import { useEffect } from "react";
-
-// ✅ FIX: import via require() to get string paths
-const iconUrl = require("leaflet/dist/images/marker-icon.png");
-const iconShadowUrl = require("leaflet/dist/images/marker-shadow.png");
-
-// Fix Leaflet marker icons in Next.js
-const DefaultIcon = L.icon({
-  iconUrl: iconUrl.default || iconUrl,
-  shadowUrl: iconShadowUrl.default || iconShadowUrl,
-  iconAnchor: [12, 41],
+const DynamicMap = dynamic(() => import("./LeafletMap"), {
+  ssr: false,
+  loading: () => <p>Loading map...</p>,
 });
-L.Marker.prototype.options.icon = DefaultIcon;
 
 export default function Map() {
-  const position: [number, number] = [6.6626, 3.3249];
-
-  const vehicles: { id: number; name: string; coords: [number, number]; icon: string }[] = [
-    { id: 1, name: "Bike Rider", coords: [6.664, 3.325], icon: "🛵" },
-    { id: 2, name: "Mini Van", coords: [6.661, 3.321], icon: "🚙" },
-    { id: 3, name: "Truck", coords: [6.665, 3.327], icon: "🚚" },
-  ];
-
-  useEffect(() => {}, []);
-
   return (
-    <MapContainer
-      center={position}
-      zoom={14}
-      scrollWheelZoom
-      className="h-full w-full z-0 rounded-md"
-    >
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-
-      <Marker position={position}>
-        <Popup>📍 SwiftHaul Base — Agege/Iju-Ishaga</Popup>
-      </Marker>
-
-      {vehicles.map((v) => (
-        <Marker key={v.id} position={v.coords}>
-          <Popup>
-            <div className="text-center">
-              <p className="text-lg">{v.icon}</p>
-              <p>{v.name}</p>
-              <p className="text-sm text-gray-500">Available</p>
-            </div>
-          </Popup>
-        </Marker>
-      ))}
-    </MapContainer>
+    <div className="w-full h-[400px] rounded-lg overflow-hidden shadow-md">
+      <DynamicMap />
+    </div>
   );
 }
