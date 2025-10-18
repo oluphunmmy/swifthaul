@@ -20,14 +20,14 @@ export default function HomePage() {
 
   return (
     <>
-      <div className="min-h-screen flex flex-col bg-swiftLight overflow-hidden">
+      <div className="min-h-screen flex flex-col bg-white overflow-hidden">
         {/* Navbar */}
         <div className="fixed top-0 left-0 w-full z-50">
           <Navbar />
         </div>
 
         {/* Hero Section with Map */}
-        <section className="relative pt-[71px]">
+        <section className="relative pt-[72px] bg-white">
           <div className="h-[70vh] w-full">
             <Map />
           </div>
@@ -41,7 +41,7 @@ export default function HomePage() {
         </section>
 
         {/* Booking Form Section */}
-        <section className="flex justify-center py-12 px-4 bg-white">
+        <section className="flex justify-center py-12 px-4 bg-white -mt-[2px]">
           <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-8 animate-fade-in">
             <h2 className="text-2xl font-bold text-swiftGreen mb-4 text-center">
               Book a Haul

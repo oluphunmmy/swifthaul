@@ -28,6 +28,7 @@ export default function LeafletMap() {
 
   useEffect(() => {
     // Optional: live updates or tracking logic
+    
   }, []);
 
   return (

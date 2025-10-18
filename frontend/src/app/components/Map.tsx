@@ -8,7 +8,7 @@ const DynamicMap = dynamic(() => import("./LeafletMap"), {
 
 export default function Map() {
   return (
-    <div className="w-full h-[400px] rounded-lg overflow-hidden shadow-md">
+    <div className="w-full h-[450px] rounded-lg overflow-hidden shadow-md background-none">
       <DynamicMap />
     </div>
   );

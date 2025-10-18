@@ -13,3 +13,8 @@ button {
 h1, h2, h3 {
   @apply font-bold;
 }
+
+/* ✅ Fix: remove default Leaflet white background */
+.leaflet-container {
+  background: none !important;
+}
